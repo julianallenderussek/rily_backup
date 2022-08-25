@@ -1,0 +1,5 @@
+query getArticles {
+    articles(publicationState: PREVIEW) {
+        id
+    }
+}

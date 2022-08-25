@@ -4,21 +4,46 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn generate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:write": "next lint --cache --fix",
+    "generate": "graphql-codegen --config codegen.yml",
+    "prestart": "yarn generate",
+    "predev": "yarn generate",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
+    "@rily/components": "^1.0.70",
+    "graphql": "^16.6.0",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "2.11.6",
+    "@graphql-codegen/introspection": "2.2.1",
+    "@graphql-codegen/typescript": "2.7.3",
+    "@graphql-codegen/typescript-document-nodes": "2.3.3",
+    "@graphql-codegen/typescript-operations": "2.5.3",
+    "@graphql-codegen/typescript-react-apollo": "3.3.3",
+    "@playwright/test": "^1.25.1",
     "@types/node": "18.7.13",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
-    "eslint": "8.22.0",
+    "@types/styled-components": "^5.1.26",
+    "eslint": "^8.22.0",
     "eslint-config-next": "12.2.5",
+    "eslint-config-prettier": "^8.5.0",
+    "graphql-codegen-apollo-next-ssr": "^1.7.4",
+    "husky": ">=6",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1",
     "typescript": "4.7.4"
   }
 }
