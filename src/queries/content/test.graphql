@@ -1,0 +1,17 @@
+query getRecipe($id: ID!) {
+	recipe(id: $id) {
+		data {
+			id
+			attributes {
+				name
+				images {
+					data {
+						attributes {
+							url
+						}
+					}
+				}
+			}
+		}
+	}
+}
