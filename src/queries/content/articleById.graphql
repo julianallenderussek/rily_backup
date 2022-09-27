@@ -1,0 +1,315 @@
+query getArticleById($id: ID!) {
+    article(id: $id) {
+      data {
+      id
+      attributes {
+        publishedAt
+        header {
+          data {
+            attributes {
+              url
+              name
+            }
+          }
+        }
+        title
+        subtitle
+        body {
+          __typename
+          ...ComponentCenterText
+          ...ComponentCenterListItem
+          ...ComponentFiftyFiftyImageAndText
+          ...ComponentFiftyFiftyImageAndImage
+          ...ComponentFiftyFiftyTextAndImage
+          ...ComponentFiftyFiftyLargeTextAndImage
+          ...ComponentFiftyFiftyLargeImageAndText
+          ...ComponentRecipeLink
+          ...ComponentFiftyFiftyLargeImageAndImage
+          ...ComponentCenterPullQuote
+        }
+        tags {
+          data {
+            id
+            attributes {
+              createdAt
+              updatedAt
+            }
+          }
+        }
+        category
+        author {
+          data {
+            id
+          }
+        }
+        related_recipes {
+          data {
+            id
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment ComponentCenterText on ComponentCenterText {
+  id
+  text
+}
+
+fragment ComponentCenterListItem on ComponentCenterListItem {
+  heading
+  id
+  text
+}
+
+fragment ComponentRecipeLink on ComponentRecipeLink {
+  recipeCaption: caption
+  id
+  overrideImage {
+    data {
+      id
+      attributes {
+        alternativeText
+        url
+        ext
+        hash
+        mime
+        name
+        formats
+        previewUrl
+        provider
+        provider_metadata
+        width
+        size
+        updatedAt
+        height
+        caption
+      }
+    }
+  }
+  recipe {
+    data {
+      id
+      attributes {
+        name
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}
+
+fragment ComponentFiftyFiftyImageAndText on ComponentFiftyFiftyImageAndText {
+  id
+  text
+  image {
+    data {
+      id
+      attributes {
+        alternativeText
+        url
+        ext
+        hash
+        mime
+        name
+        formats
+        previewUrl
+        provider
+        provider_metadata
+        width
+        size
+        updatedAt
+        height
+        caption
+      }
+    }
+  }
+  caption
+}
+
+fragment ComponentFiftyFiftyLargeImageAndText on ComponentFiftyFiftyLargeImageAndText {
+  id
+  text
+  image {
+    data {
+      id
+      attributes {
+        alternativeText
+        url
+        ext
+        hash
+        mime
+        name
+        formats
+        previewUrl
+        provider
+        provider_metadata
+        width
+        size
+        updatedAt
+        height
+        caption
+      }
+    }
+  }
+  caption
+}
+
+fragment ComponentFiftyFiftyTextAndImage on ComponentFiftyFiftyTextAndImage {
+  id
+  text
+  image {
+    data {
+      id
+      attributes {
+        alternativeText
+        url
+        ext
+        hash
+        mime
+        name
+        formats
+        previewUrl
+        provider
+        provider_metadata
+        width
+        size
+        updatedAt
+        height
+        caption
+      }
+    }
+  }
+  caption
+}
+
+fragment ComponentFiftyFiftyLargeTextAndImage on ComponentFiftyFiftyLargeTextAndImage {
+  id
+  text
+  image {
+    data {
+      id
+      attributes {
+        alternativeText
+        url
+        ext
+        hash
+        mime
+        name
+        formats
+        previewUrl
+        provider
+        provider_metadata
+        width
+        size
+        updatedAt
+        height
+        caption
+      }
+    }
+  }
+  caption
+}
+
+fragment ComponentFiftyFiftyImageAndImage on ComponentFiftyFiftyImageAndImage {
+  caption
+  id
+  image1 {
+    data {
+      id
+      attributes {
+        alternativeText
+        url
+        ext
+        hash
+        mime
+        name
+        formats
+        previewUrl
+        provider
+        provider_metadata
+        width
+        size
+        updatedAt
+        height
+        caption
+      }
+    }
+  }
+  image2 {
+    data {
+      id
+      attributes {
+        alternativeText
+        url
+        ext
+        hash
+        mime
+        name
+        formats
+        previewUrl
+        provider
+        provider_metadata
+        width
+        size
+        updatedAt
+        height
+        caption
+      }
+    }
+  }
+}
+
+fragment ComponentFiftyFiftyLargeImageAndImage on ComponentFiftyFiftyLargeImageAndImage {
+  caption
+  id
+  largeImage1: image1 {
+    data {
+      id
+      attributes {
+        alternativeText
+        url
+        ext
+        hash
+        mime
+        name
+        formats
+        previewUrl
+        provider
+        provider_metadata
+        width
+        size
+        updatedAt
+        height
+        caption
+      }
+    }
+  }
+  largeImage2: image2 {
+    data {
+      id
+      attributes {
+        alternativeText
+        url
+        ext
+        hash
+        mime
+        name
+        formats
+        previewUrl
+        provider
+        provider_metadata
+        width
+        size
+        updatedAt
+        height
+        caption
+      }
+    }
+  }
+}
+
+fragment ComponentCenterPullQuote on ComponentCenterPullQuote {
+  text
+}

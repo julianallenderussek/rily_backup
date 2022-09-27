@@ -1,0 +1,29 @@
+query getArticles {
+  articles(publicationState: LIVE) {
+    data {
+      id
+      attributes {
+        publishedAt
+        header {
+          data {
+            attributes {
+              url
+              name
+            }
+          }
+        }
+        title
+        subtitle
+        category
+        author {
+          data {
+            id
+          }
+        }
+      }
+    }
+  }
+}
+
+
+

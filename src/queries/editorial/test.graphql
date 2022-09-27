@@ -1,5 +1,0 @@
-query getLegacyArticles {
-	articles(publicationState: PREVIEW) {
-		id
-	}
-}
