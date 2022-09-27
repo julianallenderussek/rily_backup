@@ -4,6 +4,7 @@ query getRecipe($id: ID!) {
 			id
 			attributes {
 				name
+				publishedAt
 				images {
 					data {
 						attributes {
